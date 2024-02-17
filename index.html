@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,99 @@
         font-family: "Inter", sans-serif;
     }
 </style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'main-green': '#1DD100',
+          }
+        }
+      }
+    }
+  </script>
 <body>
-    
+    <head>
+        <nav class="w-11/12 mx-auto font-raleway mb-8">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a class="text-[#030712B3] text-lg font-medium">Home</a></li>
+                      <li><a class="text-[#030712B3] text-lg font-medium">About</a></li>
+                      <li><a class="text-[#030712B3] text-lg font-medium">Destination</a></li>
+                      <li><a class="text-[#030712B3] text-lg font-medium">Search</a></li>
+                    </ul>
+                  </div>
+                  <a class="btn btn-ghost text-3xl font-extrabold">E-Ticket</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1">
+                    <li><a class="text-[#030712B3] text-lg font-medium">Home</a></li>
+                    <li><a class="text-[#030712B3] text-lg font-medium">About</a></li>
+                    <li><a class="text-[#030712B3] text-lg font-medium">Destination</a></li>
+                    <li><a class="text-[#030712B3] text-lg font-medium">Search</a></li>
+                  </ul>
+                </div>
+                <div class="navbar-end">
+                  <a class="btn">
+                    <p class="text-main-green text-xl font-bold">Bus</p>
+                    <img src="./images/bus-icon.png" alt="">
+                  </a>
+                </div>
+              </div>
+        </nav>
+        <section class="banner w-11/12 mx-auto">
+            <div class="hero rounded-3xl h-[650px]" style="background-image: url(./images/banner.png);">
+                <div class=" bg-opacity-60"></div>
+                <div class="hero-content text-center text-neutral-content">
+                  <div class="">
+                    <h1 class="text-white mb-5 text-6xl font-extrabold font-raleway">End-to-End Travel with</h1>
+                    <span class="text-main-green text-6xl font-extrabold font-raleway">E-Paribahan</span>
+                    <p class="mb-8 mt-4 text-white text-lg font-normal font-inter">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+                    <button class="btn btn-primary text-black bg-main-green text-xl font-bold border-none">Buy Tickets</button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-center gap-6 -mt-20 mb-28">
+                    <div class="flex w-80 p-8 rounded-2xl border-b-4 border-main-green gap-4 bg-white">
+                    <div class="border-dotted border-2">
+                        <img  src="./images/people.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-[#030712] text-4xl font-bold">500K+</h3>
+                        <p class="text-[#03071299] text-lg">Registered Users</p>
+                    </div>
+                    </div>
+                    <div class="flex w-80 p-8 rounded-2xl border-b-4 border-main-green gap-4 bg-white">
+                    <div class="border-dotted border-2">
+                        <img  src="./images/ticket-cupon.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-[#030712] text-4xl font-bold">1.7 lacks</h3>
+                        <p class="text-[#03071299] text-lg">Ticket solds</p>
+                    </div>
+                    </div>
+                    <div class="flex w-80 p-8 rounded-2xl border-b-4 border-main-green gap-4 bg-white">
+                    <div class="border-dotted border-2">
+                        <img  src="./images/stoppage.png" alt="">
+                    </div>
+                    <div>
+                        <h3 class="text-[#030712] text-4xl font-bold">80K+</h3>
+                        <p class="text-[#03071299] text-lg">Rental partners</p>
+                    </div>
+                    </div>
+              </div>
+        </section>
+    </head>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
 </body>
 </html>
