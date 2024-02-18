@@ -158,7 +158,7 @@
         <!-- Offer section end -->
 
         <!-- Ticket Details section start -->
-        <section class="ticket-details-sec bg-[#F7F8F8]">
+        <section class="ticket-details-sec bg-[#F7F8F8] py-28 rounded-t-[80px] border-2 border-t-[#1DD100] ">
             <div class="ticket-details-title max-w-2xl mx-auto text-center space-y-6 mb-12">
                 <h2 class="text-[#030712] text-4xl font-bold font-raleway">E-Paribahan</h2>
                 <p class="text-[#03071299] text-lg ">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
@@ -224,11 +224,90 @@
                     </div>
                 </div>
             </div>
-            <div class="h-10 border-4 mt-4">
-
+            <div class=" w-11/12 mx-auto mt-6 bg-white p-4 flex flex-col lg:flex-row rounded-2xl">
+                <div class="w-full lg:w-3/5 p-8 border-dashed lg:border-r-2">
+                   <div class="border-dashed border-b-2 mb-4">
+                    <h4 class="text-[#030712] text-2xl font-bold mb-4 font-raleway">Select Your Seat</h4>
+                   </div> 
+                   <div class="flex justify-between border-dashed border-b-2 mb-6">
+                        <div class="flex mb-4">
+                        <img class="border-dashed border-2" src="./images/seat-gray.png" alt="">
+                        <p class="text-[#03071280] text-lg font-semibold font-inter">Available</p>
+                        </div>
+                        <div class="flex mb-4">
+                        <img class="border-dashed border-2" src="./images/seat-green-filled.png" alt="">
+                        <p class="text-[#1DD100] text-lg font-semibold font-inter">Selected</p>
+                        </div>
+                   </div>
+                   <div class="flex justify-end mb-6">
+                    <img src="./images/stayering.png" alt="">
+                   </div>
+                   <div class="flex gap-4 lg:justify-between">
+                        <div class="flex flex-col justify-evenly text-center">
+                        <p class="w-16 font-inter text-[#03071280] text-lg font-medium">A=></p>
+                        <p class="w-16 font-inter text-[#03071280] text-lg font-medium">B=></p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 lg:gap-6">
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">A1</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">A2</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">B1</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">B2</button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 lg:gap-6">
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">A3</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">A4</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">B3</button>
+                        <button class="btn w-14 lg:w-28 text-[#03071280] text-lg font-medium font-inter">B4</button>
+                        </div>
+                   </div>
+                </div>
+                <div class="lg:w-2/5 p-8">
+                   <div>
+                        <div class="border-dashed border-b-2 mb-4">
+                            <h4 class="text-[#030712] text-2xl font-bold font-raleway mb-4">Select Your Seat</h4> 
+                        </div>
+                        <div class="bg-[#F7F8F8] font-inter p-8 rounded-xl mb-6">
+                            <div class="flex justify-between border-dashed border-b-2">
+                                <p class="text-[#030712] font-semibold mb-4">Seat <span  id="selled-seat" class="bg-[#1DD100] text-white rounded-lg">0</span></p>
+                                <p class="text-[#030712] font-semibold mb-4">Class</p>
+                                <p class="text-[#030712] font-semibold mb-4">Price</p>
+                            </div>
+                            <div class="flex justify-between border-b-2 text-[#03071299] text-lg font-medium mb-4">
+        
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <p class="text-[#030712] font-semibold">Total Price</p>
+                                <p class="text-[#030712] font-semibold">BDT <span id="total-cost">0</span></p>
+                            </div>
+                            <div class="relative text-center mb-6">
+                                <input class="p-4 w-4/5 rounded-xl mb-3" type="text" placeholder="Have any copupon?">
+                                <button class="btn lg:absolute top-1 right-14 text-white text-lg font-semibold bg-[#1DD100]">Apply</button>
+                            </div>
+                            <div class="flex justify-between">
+                                <p class="text-[#030712] font-semibold">Grand Total</p>
+                                <p class="text-[#030712] font-semibold">BDT <span id="grand-total">0</span></p>
+                            </div>
+                        </div>
+                   </div>
+                   <div>
+                        <p class="text-[#030712] font-semibold mb-4">Passenger Name*</p>
+                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="text" placeholder="Enter your name">
+                        <p class="text-[#030712] font-semibold mb-4">Phone Number*</p>
+                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="number" placeholder="Enter your phone number">
+                        <p class="text-[#030712] font-semibold mb-4">Email ID</p>
+                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="email" placeholder="Enter your email id">
+                        <div>
+                        <button class="btn w-full bg-[#1DD100] text-white text-xl font-extrabold">Next</button>
+                        </div>
+                   </div>
+                   <div class="flex flex-col lg:flex-row items-center gap-4 lg:justify-evenly mt-6">
+                    <p class="text-[#03071299] text-lg font-medium border-b-2 border-[#03071299]">Terms and Conditions</p>
+                    <p class="text-[#03071299] text-lg font-medium border-b-2 border-[#03071299]">Cancellation Policy</p>
+                   </div>
+                </div>
             </div>
         </section>
-        <!-- Tucket details section end -->
+        <!-- Ticket details section end -->
     </main>
     <footer>
 
