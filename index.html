@@ -268,7 +268,7 @@
                         </div>
                         <div class="bg-[#F7F8F8] font-inter p-8 rounded-xl mb-6">
                             <div class="flex justify-between border-dashed border-b-2">
-                                <p class="text-[#030712] font-semibold mb-4">Seat <span  id="selled-seat" class="bg-[#1DD100] text-white rounded-lg p-2">0</span></p>
+                                <p class="text-[#030712] font-semibold mb-4">Seat <span  id="sold-seat" class="bg-[#1DD100] text-white rounded-lg p-2">0</span></p>
                                 <p class="text-[#030712] font-semibold mb-4">Class</p>
                                 <p class="text-[#030712] font-semibold mb-4">Price</p>
                             </div>
@@ -281,7 +281,7 @@
                             </div>
                             <div class="relative text-center mb-6">
                                 <input class="p-4 w-4/5 rounded-xl mb-3" type="text" placeholder="Have any copupon?">
-                                <button class="btn lg:absolute top-1 right-14 text-white text-lg font-semibold bg-[#1DD100]" disabled>Apply</button>
+                                <button id="apply-btn" class="btn lg:absolute top-1 right-14 text-white text-lg font-semibold bg-[#1DD100]" disabled>Apply</button>
                             </div>
                             <div class="flex justify-between">
                                 <p class="text-[#030712] font-semibold">Grand Total</p>
@@ -291,13 +291,13 @@
                    </div>
                    <div>
                         <p class="text-[#030712] font-semibold mb-4">Passenger Name*</p>
-                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="text" placeholder="Enter your name">
+                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="text" placeholder="Enter your name" required>
                         <p class="text-[#030712] font-semibold mb-4">Phone Number*</p>
-                        <input class="w-full border-2 p-4 rounded-xl mb-4" type="number" placeholder="Enter your phone number">
+                        <input id="input-number" class="w-full border-2 p-4 rounded-xl mb-4" type="tel" placeholder="Enter your phone number" required>
                         <p class="text-[#030712] font-semibold mb-4">Email ID</p>
                         <input class="w-full border-2 p-4 rounded-xl mb-4" type="email" placeholder="Enter your email id">
                         <div>
-                        <button class="btn w-full bg-[#1DD100] text-white text-xl font-extrabold">Next</button>
+                        <button id="btn-next"  class="btn w-full bg-[#1DD100] text-white text-xl font-extrabold" disabled>Next</button>
                         </div>
                    </div>
                    <div class="flex flex-col lg:flex-row items-center gap-4 lg:justify-evenly mt-6">
