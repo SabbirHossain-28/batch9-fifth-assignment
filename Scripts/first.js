@@ -115,7 +115,7 @@ function addToCart(value) {
             }
             else if(couponInputFieldValue === 'Couple 20' && childListNum===4){
                 let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
-                let discountedGrandTotal = currentGrandTotal * 0.8; // Applying 15% discount
+                let discountedGrandTotal = currentGrandTotal * 0.8; // Applying 20% discount
                 grandTotal.innerText = discountedGrandTotal;
 
                 let discountedAmount=currentGrandTotal*0.2;
