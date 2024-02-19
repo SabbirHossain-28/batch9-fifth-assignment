@@ -11,31 +11,28 @@ for(let ticketSelectBtn of allTicketSelectBtn){
         const innerTextValue=this.innerText;
         addToCart(innerTextValue)
 
+        const totalCurrentSeatQuantity=document.getElementById('current-seat-quantity');
+        let totalCurrentSeatQuantityNum=parseInt(totalCurrentSeatQuantity.innerText);
+        totalCurrentSeatQuantityNum-=1;
+        totalCurrentSeatQuantity.innerText=totalCurrentSeatQuantityNum;
+        
+        const totalSoldSeat=document.getElementById('sold-seat');
+        let totalSoldSeatNum=parseInt(totalSoldSeat.innerText);
+        totalSoldSeatNum+=1;
+        totalSoldSeat.innerText=totalSoldSeatNum;
+        count=totalSoldSeatNum;
+        
         if(clicked){
             ticketSelectBtn.style.backgroundColor='#1DD100'
             ticketSelectBtn.style.color='white'
             ticketSelectBtn.style.cursor='not-allowed'
             ticketSelectBtn.disabled=true;
         }
-        const totalCurrentSeatQuantity=document.getElementById('current-seat-quantity');
-        let totalCurrentSeatQuantityNum=parseInt(totalCurrentSeatQuantity.innerText);
-        totalCurrentSeatQuantityNum-=1;
-        totalCurrentSeatQuantity.innerText=totalCurrentSeatQuantityNum;
 
-        const totalSoldSeat=document.getElementById('sold-seat');
-        let totalSoldSeatNum=parseInt(totalSoldSeat.innerText);
-        totalSoldSeatNum+=1;
-        totalSoldSeat.innerText=totalSoldSeatNum;
-        count=totalSoldSeatNum;
-
-        if(count===4){
-             
-        }
-
-        if (totalCurrentSeatQuantityNum ===0) {
+        if (totalCurrentSeatQuantityNum ===4) {
             for(let disabledCurrentSeat of allTicketSelectBtn)
             disabledCurrentSeat.disabled = true;
-        // alert('All tickets are sold');
+        alert('You can select maximum 4 tickets');
         }
         activateNextButton(count);
     })
@@ -51,7 +48,8 @@ function activateNextButton(count) {
         const isNumeric = /^\d+$/.test(inputValue);
         if (isNumeric && count >= 1) {
             nextButton.removeAttribute('disabled');
-        } else {
+        } 
+        else {
             nextButton.setAttribute('disabled', 'disabled');
         }
     });
@@ -93,32 +91,56 @@ function addToCart(value) {
             let couponInputField = document.getElementById('coupon-input-field');
             let couponInputFieldValue = couponInputField.value.trim();
 
-            if (couponInputFieldValue === 'NEW15') {
+            if (couponInputFieldValue === 'NEW15' && childListNum===4) {
                 let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
                 let discountedGrandTotal = currentGrandTotal * 0.85; // Applying 15% discount
                 grandTotal.innerText = discountedGrandTotal;
+
+                let discountedAmount=currentGrandTotal*0.15;
+                let discountContainer=document.getElementById('discount-container');
+                let div=document.createElement('div');
+                let p1=document.createElement('p');
+                let p2=document.createElement('p');
+                p1.innerText=`Discount amount`;
+                p2.innerText=`BDT ${discountedAmount}`;
+
+                
+                div.appendChild(p1);
+                div.appendChild(p2);
+                
+                div.classList.add('text-[#030712]', 'font-semibold','flex','justify-between','my-4')
+                discountContainer.appendChild(div)
             
                 document.getElementById('coupon-field-container').classList.add('hidden')
             }
-            else if(couponInputFieldValue === 'Couple 20'){
+            else if(couponInputFieldValue === 'Couple 20' && childListNum===4){
                 let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
                 let discountedGrandTotal = currentGrandTotal * 0.8; // Applying 15% discount
                 grandTotal.innerText = discountedGrandTotal;
 
+                let discountedAmount=currentGrandTotal*0.2;
+
+                let discountContainer=document.getElementById('discount-container');
+                let div=document.createElement('div');
+                let p1=document.createElement('p');
+                let p2=document.createElement('p');
+                p1.innerText=`Discount amount`;
+                p2.innerText=`BDT ${discountedAmount}`;
+
+                
+                div.appendChild(p1);
+                div.appendChild(p2);
+                
+                div.classList.add('text-[#030712]', 'font-semibold','flex','justify-between','my-4')
+                discountContainer.appendChild(div)
+
+
                 document.getElementById('coupon-field-container').classList.add('hidden')
+            }
+            else{
+                couponInputField.classList.add('outline', 'outline-offset-2','outline-red-500')
+                alert('Wrong Coupon Code');
             }
         })
     }
 }
-
-
-// function applyCoupon(inputFieldId){
-//     let couponInputField=document.getElementById(inputFieldId);
-//     let couponInputFieldValue=couponInputField.value.trim();
-//     if(couponInputFieldValue==='NEW15'){
-//         let currentGrandTotal=document.getElementById('grand-total');
-//         console.log(currentGrandTotal.innerText);
-//         let discountedGrandTotal=currentGrandTotal-currentGrandTotal*1.5;
-//         currentGrandTotal.innerText=discountedGrandTotal;
-//     }
-// }
