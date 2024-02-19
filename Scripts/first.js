@@ -32,15 +32,16 @@ for(let ticketSelectBtn of allTicketSelectBtn){
         if (totalCurrentSeatQuantityNum ===4) {
             for(let disabledCurrentSeat of allTicketSelectBtn)
             disabledCurrentSeat.disabled = true;
-        alert('You can select maximum 4 tickets');
+            alert('You can select maximum 4 tickets');
         }
+
+// Calling the function for active next button
         activateNextButton(count);
     })
 }
 
 function activateNextButton(count) {
     const inputNumber = document.getElementById('input-number');
-    
     const nextButton = document.getElementById('btn-next');
 
     inputNumber.addEventListener('input', function () {
@@ -48,9 +49,12 @@ function activateNextButton(count) {
         const isNumeric = /^\d+$/.test(inputValue);
         if (isNumeric && count >= 1) {
             nextButton.removeAttribute('disabled');
+            inputNumber.classList.add('outline-double', 'outline-4','outline-[#1DD100]');
+           
         } 
         else {
             nextButton.setAttribute('disabled', 'disabled');
+            inputNumber.classList.add('outline-double', 'outline-4','outline-red-500')
         }
     });
 }
@@ -84,6 +88,8 @@ function addToCart(value) {
     let grandTotal = document.getElementById('grand-total');
     grandTotal.innerText = multipliedValue;
 
+
+// Apply coupon code
     if (childListNum >= 4) {
         const applyBtn = document.getElementById('apply-btn');
         applyBtn.removeAttribute('disabled');
@@ -91,6 +97,7 @@ function addToCart(value) {
             let couponInputField = document.getElementById('coupon-input-field');
             let couponInputFieldValue = couponInputField.value.trim();
 
+            // Validation for apply coupon code 15%
             if (couponInputFieldValue === 'NEW15' && childListNum===4) {
                 let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
                 let discountedGrandTotal = currentGrandTotal * 0.85; // Applying 15% discount
@@ -109,10 +116,12 @@ function addToCart(value) {
                 div.appendChild(p2);
                 
                 div.classList.add('text-[#030712]', 'font-semibold','flex','justify-between','my-4')
-                discountContainer.appendChild(div)
-            
-                document.getElementById('coupon-field-container').classList.add('hidden')
+                discountContainer.appendChild(div);
+                
+                document.getElementById('coupon-field-container').classList.add('hidden');
             }
+
+            // // Validation for apply coupon code 20%
             else if(couponInputFieldValue === 'Couple 20' && childListNum===4){
                 let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
                 let discountedGrandTotal = currentGrandTotal * 0.8; // Applying 20% discount
@@ -138,8 +147,9 @@ function addToCart(value) {
                 document.getElementById('coupon-field-container').classList.add('hidden')
             }
             else{
-                couponInputField.classList.add('outline', 'outline-offset-2','outline-red-500')
+                couponInputField.classList.add('outline', 'outline-offset-2','outline-red-500');
                 alert('Wrong Coupon Code');
+                
             }
         })
     }
