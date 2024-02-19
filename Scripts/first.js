@@ -9,7 +9,6 @@ for(let ticketSelectBtn of allTicketSelectBtn){
     let count=0;
     ticketSelectBtn.addEventListener('click',function(e){
         const innerTextValue=this.innerText;
-        console.log(innerTextValue);
         addToCart(innerTextValue)
 
         if(clicked){
@@ -30,8 +29,7 @@ for(let ticketSelectBtn of allTicketSelectBtn){
         count=totalSoldSeatNum;
 
         if(count===4){
-            const applyBtn=document.getElementById('apply-btn');
-            applyBtn.removeAttribute('disabled'); 
+             
         }
 
         if (totalCurrentSeatQuantityNum ===0) {
@@ -45,9 +43,8 @@ for(let ticketSelectBtn of allTicketSelectBtn){
 
 function activateNextButton(count) {
     const inputNumber = document.getElementById('input-number');
-    console.log(inputNumber);
+    
     const nextButton = document.getElementById('btn-next');
-    console.log(activateNextButton);
 
     inputNumber.addEventListener('input', function () {
         const inputValue = inputNumber.value.trim();
@@ -60,23 +57,68 @@ function activateNextButton(count) {
     });
 }
 
-function addToCart(value){
+function addToCart(value) {
     let cartContainer = document.getElementById('cart-container');
     let div = document.createElement('div');
-    div.classList.add("flex","justify-between");
+    div.classList.add("flex", "justify-between");
 
     let p1 = document.createElement('p');
     p1.innerText = `${value}`;
-    
+
     let p2 = document.createElement('p');
     p2.innerText = 'Economy';
-    
+
     let p3 = document.createElement('p');
     p3.innerText = `550`;
-    
+
     div.appendChild(p1);
     div.appendChild(p2);
     div.appendChild(p3);
-    
+
     cartContainer.appendChild(div);
+    let childList = cartContainer.children;
+    let childListNum = childList.length;
+
+    let multipliedValue = 550 * childListNum;
+    let totalCost = document.getElementById('total-cost');
+    totalCost.innerText = multipliedValue;
+
+    let grandTotal = document.getElementById('grand-total');
+    grandTotal.innerText = multipliedValue;
+
+    if (childListNum >= 4) {
+        const applyBtn = document.getElementById('apply-btn');
+        applyBtn.removeAttribute('disabled');
+        applyBtn.addEventListener('click', function () {
+            let couponInputField = document.getElementById('coupon-input-field');
+            let couponInputFieldValue = couponInputField.value.trim();
+
+            if (couponInputFieldValue === 'NEW15') {
+                let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
+                let discountedGrandTotal = currentGrandTotal * 0.85; // Applying 15% discount
+                grandTotal.innerText = discountedGrandTotal;
+            
+                document.getElementById('coupon-field-container').classList.add('hidden')
+            }
+            else if(couponInputFieldValue === 'Couple 20'){
+                let currentGrandTotal = parseInt(grandTotal.innerText); // Parsing innerText instead of the element itself
+                let discountedGrandTotal = currentGrandTotal * 0.8; // Applying 15% discount
+                grandTotal.innerText = discountedGrandTotal;
+
+                document.getElementById('coupon-field-container').classList.add('hidden')
+            }
+        })
+    }
 }
+
+
+// function applyCoupon(inputFieldId){
+//     let couponInputField=document.getElementById(inputFieldId);
+//     let couponInputFieldValue=couponInputField.value.trim();
+//     if(couponInputFieldValue==='NEW15'){
+//         let currentGrandTotal=document.getElementById('grand-total');
+//         console.log(currentGrandTotal.innerText);
+//         let discountedGrandTotal=currentGrandTotal-currentGrandTotal*1.5;
+//         currentGrandTotal.innerText=discountedGrandTotal;
+//     }
+// }
